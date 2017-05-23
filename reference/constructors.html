@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/mainstyles.css">
+	<meta charset="utf-8">
+    <title>JavaScript Reference</title>	
+</head>
+<body>
+
+<ul class='ddMenu'>
+<li><a href='#'>JavaScript Fundamentals</a>
+    <ul>
+	<li><a href='arrays.html'>Arrays and Array Methods</a></li>
+	<li><a href='functions.html'>Functions and Scope</a></li>
+	<li><a href='objects.html'>Objects</a></li>
+	</ul>
+</li>
+<li><a href='#'>Object Oriented JavaScript</a>
+	<ul>
+	<li><a href='constructors.html'>Constructors</a></li>
+	<li><a href='prototypes.html'>Prototypes</a></li>
+    <li><a href='closures.html'>Closures</a></li>
+	</ul>
+</li>
+<!--
+<li><a href='#'>Intermediate and Advanced JS</a>
+    <ul>
+        <li><a href='events.html'>Events</a></li>
+	    <li><a href='timers.html'>Timers</a></li>
+        <li><a href='closures.html'>Closures</a></li>
+        
+	</ul>
+</li>
+-->
+
+
+</ul>
+
+<br />
+<div id="main">
+
+    
+   <h3>Constructors</h3>
+   
+      <p class='code'>  
+     <b>Constructors</b> - used when you want to create multiple instances of your own objects<br /><br />  
+     <b>Constructor example</b><br />  
+     
+       var Bicycle = function(color, numOfWheels) {<br /> 
+       &nbsp;&nbsp;&nbsp;&nbsp;this.color = color;<br /> 
+       &nbsp;&nbsp;&nbsp;&nbsp;this.numOfWheels = numOfWheels;<br /> 
+      };
+      <br /><br />
+          
+     <b>Creating a new instance of an object from the Constructor</b><br /> 
+        var myBicycle = new Bicycle(blue, 2)<br /><br />
+           
+     <b>Accessing an object's properties</b><br /> 
+        console.log(myBicycle.color) // blue<br /><br /> 
+
+    <b>Adding a method to an object</b><br /> 
+       Bicycle.prototype.speed(terrain) {<br /> 
+       &nbsp;&nbsp;if(terrain === street) {<br /> 
+       &nbsp;&nbsp;&nbsp;&nbsp;speed = 15;<br /> 
+       &nbsp;&nbsp; }<br /> 
+       &nbsp;else {<br /> 
+       &nbsp;&nbsp;&nbsp;&nbsp;speed = 10;<br />
+       &nbsp; }<br />       
+      };
+      <br /> <br />  
+      myBicycle.speed(street); // speed = 15
+    </p>
+    
+
+</div>
+<div id="footer">
+
+</div>
+<script src="js/arrays.js"></script>
+</body>
+</html>

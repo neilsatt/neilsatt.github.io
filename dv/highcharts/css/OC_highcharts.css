@@ -1,0 +1,32 @@
+#floatSelect {
+  margin-left: 35px;
+  margin-top:10px;
+}
+
+#currentFloat{
+  margin-left: 35px;
+}
+
+#bodyOfWater{
+  margin-left: 10px;
+  margin-top:5px;
+}
+
+#floatInput{
+	border: 1px teal solid;
+	width: 350px;
+	padding-bottom: 5px;
+	margin-left: 40px;
+	float:left;
+}
+#floatDropdown{
+	float:left;
+	border: 1px teal solid;
+	width: 150px;
+	padding: 10px;
+	margin-left: 40px;
+}
+#error{
+  color: red;
+  margin-left: 35px;
+}

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<people lastupdate="9/14/2005">
+
+    <person name="Ellen DeGeneres" bgcolor="003333">
+        <desc>"Sometimes you can't see yourself clearly until you see yourself through the eyes of others."</desc>
+	</person>
+
+    <person name="Michael Jordan" bgcolor="003366">
+        <desc>"I've missed more than 9000 shots in my career. I've lost almost 300 games. 26 times, I've been trusted to take the game winning shot and missed. I've failed over and over and over again in my life. And that is why I succeed."</desc>
+	</person>
+
+    <person name="Steven Wright" bgcolor="333366">
+	<desc>"I poured spot remover on my dog. Now he's gone."</desc>
+	</person>
+
+<person name="Maya Angelou" bgcolor="99CCCC">
+	<desc>"I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel."</desc>
+	</person>
+
+</people>
+

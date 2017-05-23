@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/mainstyles.css">
+	<meta charset="utf-8">
+    <title>JavaScript Reference</title>	
+</head>
+<body>
+
+<ul class='ddMenu'>
+<li><a href='#'>JavaScript Fundamentals</a>
+    <ul>
+	<li><a href='arrays.html'>Arrays and Array Methods</a></li>
+	<li><a href='functions.html'>Functions and Scope</a></li>
+	<li><a href='objects.html'>Objects</a></li>
+	</ul>
+</li>
+<li><a href='#'>Object Oriented JavaScript</a>
+	<ul>
+	<li><a href='constructors.html'>Constructors</a></li>
+	<li><a href='prototypes.html'>Prototypes</a></li>
+    <li><a href='closures.html'>Closures</a></li>
+	</ul>
+</li>
+<!--
+<li><a href='#'>Intermediate and Advanced JS</a>
+    <ul>
+        <li><a href='events.html'>Events</a></li>
+	    <li><a href='timers.html'>Timers</a></li>
+        <li><a href='closures.html'>Closures</a></li>
+        
+	</ul>
+</li>
+-->
+
+
+</ul>
+
+<br />
+<div id="main">
+
+    
+   <h3>Functions</h3>
+   
+    <p class='code'>
+         <b>Function expression</b> -  assigned to a variable and it is referred to by that variable name. Sometimes called an anonymous functions since they don't have names. Often used to handle events.<br /><br /> 
+         var myFunction = function() {<br /> 
+          &nbsp;&nbsp; // function statements here<br /> 
+         };
+        <br /><br /> Must be created before it can be called. 
+    </p>
+    
+    <p class='code'>
+         <b>Function declaration</b> - not stored in a variable, and they are declared after the function keyword. <br /><br /> 
+         function myFunction () {<br /> 
+          &nbsp;&nbsp; // function statements here<br /> 
+         };
+        <br /><br /> Function declarations are <b><em>hoisted</em></b> to the top of the context, which means they can be called before they are created in the code. 
+    </p>
+    
+    <h3>Scope</h3>
+     <p class='code'>
+         <b>Scope</b> - refers to where a variable or function is accesssible.<br /><br />
+         <b>Local Scope</b> -  when variables are created inside a function. They can only be referred to by code within that function.<br /><br /> 
+         <b>Global Scope</b> -  when variables are created outside of a function or without the var keyword. All code has access to these variable, so they generally aren't recommended.<br /><br /> 
+         <b>Lexical Scope</b> -  this means you can determine the scope of a variable or function by looking at where it is in the code.<br /><br /> 
+    </p>
+    
+     <h3>Terminology</h3>
+     <p class='code'>
+        <b>First-class function</b> - is a term that means that functions can be used like any other value in JS including, being able to be passed as an argument, returned from a function, or assigned to a variable.<br /> <br /> 
+        <b>Pass by value</b> - is how arguments are passed to functions. In otherwords, they are passed by copy, which means the original value does not get changed.<br /><br />  
+        <b>this</b> - refers to the object that the method is bound to.<br /> <br /> 
+    </p>
+    
+    <h3>Built in Function methods that manipulate <em>this</em></h3>
+     <p class='code'>  
+     <b>call</b> - executes the function with a particular <em>this</em> value and with specific parameters.<br /> 
+      &nbsp;&nbsp;1) The first parameter is the value to which <em>this</em> should be equal when the function is executed<br /> 
+      &nbsp;&nbsp;2) Any other parameters are the ones that should be passed into the function<br />             
+     <br />
+     <b>apply</b> - works the same as the <em>call</em> function, but it only accepts two paramenters:<br />
+      &nbsp;&nbsp;1) The value of <em>this</em><br />
+      &nbsp;&nbsp;2) An array or array like object of parameters to pass to the function<br /><br />
+     <b>bind</b> - <br />
+      &nbsp;&nbsp;1) The <em>this</em> value for the new function<br />
+      &nbsp;&nbsp;2) All other arguments represent named parameters that should be permanently set in the new function<br /> 
+    </p>
+    
+
+    
+    <h3>IIFE</h3>
+     <p class='code'>  
+     <b>Immediately Invoked Function Expression</b> - 
+     When a function is defined and invoked at the same time by adding parentheses at the end. The entire function is also wrapped inside parentheses.<br /> <br /> 
+      (function () {<br /> 
+          &nbsp;&nbsp; // function statements here<br /> 
+         }) ();   
+     <br />
+   
+    </p>
+
+</div>
+<div id="footer">
+
+</div>
+<script src="js/arrays.js"></script>
+</body>
+</html>

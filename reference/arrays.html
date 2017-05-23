@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/mainstyles.css">
+	<meta charset="utf-8">
+    <title>JavaScript Reference</title>	
+</head>
+<body>
+
+<ul class='ddMenu'>
+<li><a href='#'>JavaScript Fundamentals</a>
+    <ul>
+	<li><a href='arrays.html'>Arrays and Array Methods</a></li>
+	<li><a href='functions.html'>Functions and Scope</a></li>
+	<li><a href='objects.html'>Objects</a></li>
+	</ul>
+</li>
+<li><a href='#'>Object Oriented JavaScript</a>
+	<ul>
+	<li><a href='constructors.html'>Constructors</a></li>
+	<li><a href='prototypes.html'>Prototypes</a></li>
+    <li><a href='closures.html'>Closures</a></li>
+	</ul>
+</li>
+<!--
+<li><a href='#'>Intermediate and Advanced JS</a>
+    <ul>
+        <li><a href='events.html'>Events</a></li>
+	    <li><a href='timers.html'>Timers</a></li>
+        <li><a href='closures.html'>Closures</a></li>
+        
+	</ul>
+</li>
+-->
+
+
+</ul>
+
+<br />
+<div id="main">
+
+    
+   <h3>Array methods</h3>
+   
+     <p class='code'>
+        <b>Original Array</b>
+        var names = ['ted', 'lisa', 'veronica', 'enrique'] <br /><br />
+        var nameLength = names.<b>length</b> - <b>length</b> gives the total number of elements in an array <br /><br />
+        names.<b>push</b>('alice') -  <b>Push</b> adds another element to array. The return value is the new length of the array.<br /><br /> 
+     </p>    
+        <div class='innerCode'>
+             Length of original array: 4<br />
+             Updated names array after names.<b>push</b>: ted,lisa,veronica,enrique,alice<br />
+             names.<b>push</b> return value: 5<br /><br />
+        </div>
+         
+    <p class='code'>   
+        names.<b>pop</b>() -  <b>Pop</b> removes the last element from the array. The return value is the element that was removed.<br /><br /> 
+    </p>    
+    
+        <div class='innerCode'>
+             Updated names array after names.<b>pop</b>: ted,lisa,veronica,enrique<br />
+             names.<b>pop</b> return value: alice<br /><br />
+        </div>
+          
+    <p class='code'>    
+        names.<b>unshift</b>('francis') -  <b>Unshift</b> adds one or more elements to the beginning of the array. The return value is the new length of the array.<br /><br /> 
+    </p>  
+    
+        <div class='innerCode'>
+             Updated names array after names.<b>unshift</b>: francis,ted,lisa,veronica,enrique<br />
+             names.<b>unshift</b> return value: 5<br /><br />
+        </div>
+    
+    
+    <p class='code'>
+        names.<b>shift</b>() -  <b>Shift</b> removes the first element of the array. The return value is the element that was removed.<br /><br /> 
+    </p>   
+         
+         
+        <div class='innerCode'>
+             Updated names array after names.<b>unshift</b>: francis,ted,lisa,veronica,enrique<br />
+             names.<b>unshift</b> return value: 5<br /><br />
+         </div>
+    
+    <p class='code'>
+        names.<b>reverse</b>() -  <b>Reverse</b> reverses the order of elements.<br /><br /> 
+    </p>
+        <div class='innerCode'>
+             Updated names array after names.<b>reverse</b>: enrique,veronica,lisa,ted<br /><br />
+         </div>
+       
+    
+    <p class='code'>
+        names.<b>sort</b>() -  <b>Sort</b> sorts the elements into ascending/alphanumeric order. You can also pass a <a href="https://msdn.microsoft.com/en-us/library/4b4fbfhk(v=vs.94).aspx" target="_blank">sortFunction</a> that defines an alternative sort order.<br /><br /> 
+    </p>
+        
+      
+        <div class='innerCode'>
+             Updated names array after names.<b>sort</b>: enrique,lisa,ted,veronica<br /><br />
+         </div>
+     
+    
+     <p class='code'>
+        names.<b>splice</b>(1, 2) -  <b>Splice</b> <i>removes</i> elements. The start index is the 1st parameter and the number of elements to remove is the 2nd parameter.<br />
+        The return value is the elements that were removed.<br /><br /> 
+     </p>  
+    
+    
+         <div class='innerCode'>
+             Array before splice: enrique,lisa,ted,veronica<br />
+             Updated names array after names.<b>splice</b>: enrique,veronica<br />
+             names.<b>splice</b> return value: lisa,ted<br /><br />
+         </div>
+    
+    <p class='code'>
+        names.<b>slice</b>(2, 4) -  <b>Slice</b> returns a new array. The start index is the 1st parameter and the 2nd parameter is the number where you stop removing.<br />
+    </p>
+    
+        <div class='innerCode'>
+             Array before slice: ted,lisa,veronica,enrique<br />
+             names.<b>slice</b> returns a new array<br />
+             names.<b>slice</b> return value: veronica,enrique<br /><br />
+        </div>
+    
+
+     <p class='code'>
+        var newArray = ['bob', 'roddy', 'billy', 'stacy'];<br /><br />
+        names.<b>concat</b>(newArray) -  <b>Concat</b> returns a new array that consists of the original array plus any arrays in the parameter list.<br /><br />
+    </p>
+      <div class='innerCode'>
+             Array before names.<b>concat</b>: ted,lisa,veronica,enrique<br />
+             Array after names.<b>concat</b>: ted,lisa,veronica,enrique,bob,roddy,billy,stacy<br />
+        </div>
+    
+    
+     <p class='code'>
+        names.<b>join</b>('*') -  <b>Join</b> converts all of the array elements to strings. The parameter is for when you want something other than a comma to separate the elements.<br />    
+     </p>
+    
+        <div class='innerCode'>
+             Array before names.<b>join</b>: ted,lisa,veronica,enrique<br />
+             Array after names.<b>join</b>: ted*lisa*veronica*enrique<br />
+        </div>
+        
+    
+    
+
+</div>
+<div id="footer">
+
+</div>
+<script src="js/arrays.js"></script>
+</body>
+</html>

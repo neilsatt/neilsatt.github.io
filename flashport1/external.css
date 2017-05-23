@@ -1,0 +1,53 @@
+headline {
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18;
+	font-weight: bold;
+	margin-left: 4;
+	display: block
+}
+
+subheadline {
+	color: '#333333';
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16;
+	font-weight: bold;
+	margin-left: 6;
+	display: block
+}
+
+author {
+	color: '#333333';
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14;
+	font-weight: normal;
+	font-style: italic;
+	margin-left: 8;
+	display: block
+}
+
+body {
+	color: '#666666';
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14;
+	font-weight: normal;
+	margin-left: 4;
+	margin-right: 6;
+	display: block
+}
+
+bodybold {
+	color: #8F1D03;
+	font-weight: bold;
+	display: inline
+}
+
+
+
+a:link {
+	color: #0033FF;
+	font-weight: bold;
+}
+a:hover {
+	textDecoration: underline;
+}

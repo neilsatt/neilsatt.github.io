@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gallery</title>
+<link href="gallery/styles.css" rel="stylesheet">
+<link href="css/mainstyles.css" rel="stylesheet">
+
+
+<script src="gallery/jquery-1.6.3.min.js"></script>
+<script>
+$(document).ready(function() {
+		
+$('#gallery img').each(function(i) {
+	var imgFile = $(this).attr('src');
+	var preloadImage = new Image();
+  var imgExt = /(\.\w{3,4}$)/;
+  preloadImage.src = imgFile.replace(imgExt,'_h$1');
+		
+	$(this).hover(
+		function() {
+			$(this).attr('src', preloadImage.src);
+		},
+		function () {
+		var currentSource=$(this).attr('src');
+			$(this).attr('src', imgFile);
+	}); 
+}); 
+	
+	$('#gallery a').click(function(evt) {
+		
+		 evt.preventDefault();
+	   var imgPath = $(this).attr('href');
+		 var oldImage = $('#photo img');
+			 var newImage = $('<img src="' + imgPath +'">');
+			 newImage.hide();
+			 $('#photo').prepend(newImage);
+			 newImage.fadeIn(1000);
+			 oldImage.fadeOut(1000,function(){
+		     $(this).remove();
+				});
+	}); 
+		$('#gallery a:first').click();
+});
+</script>
+</head>
+<body>
+
+<ul class='ddMenu'>
+<li>
+
+<li><a href='#'>JavaScript</a>
+    <ul>
+	<li><a href='toDo.html'>ToDo List</a></li>
+	<!--<li><a href='formBuilder.html'>Form Collection</a></li>-->
+	</ul>
+</li>
+<li><a href='#'>jQuery</a>
+	<ul>
+	<li><a href='gallery.html'>Slideshow</a></li>
+	<li><a href='overlay.html'>Overlay</a></li>
+	</ul>
+</li>
+<li><a href='#'>jQuery UI</a>
+    <ul>
+	<li><a href='tabs.html'>Tabs</a></li>
+	<li><a href='ui.html'>Accordian</a></li>
+	<!--<li><a href='sort.html'>Sorting</a></li>-->
+	</ul>
+</li>
+</ul>
+
+	<div id="gallery"> 
+	<a href="gallery/images/large/pic1.jpg" width="610" height="458"><img src="gallery/images/small/pic1.jpg" width="100" height="75" alt="statue"></a> 
+	<a href="gallery/images/large/pic2.jpg" width="610" height="458"><img src="gallery/images/small/pic2.jpg" width="100" height="75" alt="clouds"></a> 
+	<a href="gallery/images/large/pic3.jpg" width="610" height="458"><img src="gallery/images/small/pic3.jpg" width="100" height="75" alt=mountains"></a> 
+	<a href="gallery/images/large/pic4.jpg" width="610" height="458"><img src="gallery/images/small/pic4.jpg" width="100" height="75" alt="utah"></a> 
+	<a href="gallery/images/large/pic6.jpg" width="610" height="458"><img src="gallery/images/small/pic6.jpg" width="100" height="75" alt="steamboat springs"></a>
+	</div>
+	<div id="photo"></div>
+  
+</body>
+</html>

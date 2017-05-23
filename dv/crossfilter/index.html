@@ -1,0 +1,335 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Crossfilter Demo</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/d3.v3.js"></script>		
+	<script type="text/javascript" src="js/crossfilter.js"></script>
+	<script type="text/javascript" src="js/dc.js"></script>	
+	<script src='js/jquery-1.9.1.min.js' type='text/javascript'></script>		
+	<script src='js/bootstrap.min.js' type='text/javascript'></script>
+	<link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/dc.css" media="screen" /> 
+	<link rel="stylesheet" type="text/css" href="css/charts.css" media="screen" />	
+</head>
+<body>
+<div class="pageWrapper">
+   <div id="portalBackground">
+	<!-- Data Count Widget -->
+	 <p class="mainHeader">Ocean temperature and salinity readings</p>
+		<div class="dc-data-count">
+			<span class="filter-count"></span> of <span class="total-count"></span> readings selected | 
+			<a href="#" id="resetColor" onclick="resetAll(); return false;">Reset all</a> 			
+		</div>
+		<br/>
+		
+	    <div style='clear:both;'></div>
+	   	
+		<div id="oceanRowChart" class="chart"></div>
+		
+		<div id="mainContent">
+					<div id="barChartTemp">
+					 <span class="title">
+					   <b id="tempTitle" class="lightBlue">Temperature</b>		  
+					   <a class="reset" id="resetColor" href="javascript:tempBarChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>  
+					  </span>
+					  <div id="tempYLabel"># of Readings</div>
+					</div>
+					
+					<div id="barChartPsal">
+					  <span class="title">
+					  <b id="psalTitle">Salinity</b>
+					  <a class="reset" id="resetColor" href="javascript:psalBarChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>				
+					  </span>
+					</div>		
+		    <div style='clear:both;'></div>
+			
+			<br/><br/><br/><br/>
+				<div id="barChartDate">
+					 <span id="dateTitle">
+					 <b id="dateTitle">Date</b> 
+					 <a class="reset" id="resetDateColor" href="javascript:dateBarChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+					 </span> 			 
+				</div> 
+			 <div style='clear:both;'></div>
+			 <br/>
+				<div id="dragInstructions">
+					<ol>
+					 <li>Click on the Ocean names to filter the results.</li>
+					 <li>Drag over the bars on the individual charts to create a moveable filter.</li>
+					</ol>
+				</div>
+		</div><!-- end main section-->
+		
+		<!-- bootstrap table -->
+		<hr/>
+	<div class='container' style='font: 12px sans-serif;'>
+	 <div class='row'>
+      <div class='span12'>
+		<div style='clear:both;'>
+			<table class='table table-hover'id="dataTableOC">
+				<thead>
+				<tr class="header">
+					<th>Date</th>
+					<th>Temperature</th>
+					<th>Salinity</th>		
+				</tr>
+				</thead>
+			</table>
+		</div>
+		
+		
+		
+		
+	
+	</div><!-- end wrapper-->
+
+<!-- JAVASCRIPT-->
+<script type="text/javascript">	
+	     // Chart Definitions
+	     var tempBarChart  = dc.barChart("#barChartTemp");
+		 var psalBarChart = dc.barChart("#barChartPsal");
+		 var oceanRowChart = dc.rowChart("#oceanRowChart");	
+		 var dateBarChart = dc.barChart("#barChartDate");	
+         var dataTable = dc.dataTable("#dataTableOC");		 
+		
+		 
+		// reset the charts 
+	    var resetCharts; // set global scope
+		var resetAll = function() {
+		  resetCharts();	  	
+		}	
+		
+		
+		var filterByTemp = function(){
+		  console.log('filter by temp');
+		  var linkStartDate = new Date(2014, 1, 15);
+		  var linkEndDate = new Date(2014, 5, 31);
+		  dc.filterAll();
+		  dateBarChart.filter([linkStartDate,linkEndDate]) 
+		  dc.renderAll();  
+		}
+
+		
+		var filterByWater = function() {
+		   dc.filterAll();
+		   oceanRowChart.filter("North Pacific Ocean") 
+		   dc.renderAll(); 
+		
+		}
+      
+		 //oc-current-surface_v4.json 	
+		// Load JSON ----------------------------------------------------------------------------------------------------
+		d3.csv('data/oc-all-limitedSmall.csv', function(data){ 
+			var xFilter= crossfilter(data);
+			var all = xFilter.groupAll();
+			console.log("Number of records: "+all.value());
+			
+			// Data count widget
+			dc.dataCount(".dc-data-count")
+				.dimension(xFilter)
+				.group(all);
+		
+			
+		// Format Date from JSON file
+		var parseDate = d3.time.format("%x").parse; // 01/28/2014 
+
+		
+		data.forEach(function(d,i) {				 
+				d.date = parseDate(d.strdate);			
+		});
+		
+		//DIMENSIONS AND GROUPS FOR AXES --------------------------------		
+		// Ocean
+		var oceanDim = xFilter.dimension(function(d) {return d.body_of_water;});
+		var oceanGroup =  oceanDim.group().reduceSum(function(d) {return d.body_of_water;}); 
+		// Temp
+		var tempDim = xFilter.dimension(function(d) {return d.temp;}); 
+		var tempCount = tempDim.group().reduceCount(function(d) {return d.temp;});
+
+		// Salinity
+		var psalDim = xFilter.dimension(function(d) {return d.psal;}); 
+		var psalGroup= psalDim.group().reduceCount(function(d) {return d.psal;}); 
+		// Date
+		var dateDim = xFilter.dimension(function(d) {return d.date;});
+		var dateGroup = dateDim.group().reduceCount(function(d) {return d.date;});
+	
+		
+		// MIN/MAX Values ---------------------------------------------
+		// Date 
+		var minDate = d3.min(data, function(d) {return d.date;});
+		var maxDate = d3.max(data, function(d) {return d.date;});
+		//console.log("minDate: "+minDate)	
+        //console.log("maxDate: "+maxDate)
+		
+		// Temp
+		var minTemp = d3.min(data, function(d) {return +d.temp;});	//+ sign in front of d.temp necessary to coerce to a Number
+		var maxTemp = d3.max(data, function(d) {return +d.temp;});
+		//console.log("minTemp: "+minTemp)	
+        //console.log("maxTemp: "+maxTemp)
+		
+		// Depth 
+		var minDepth = d3.min(data, function(d) {return +d.depth;});
+		var maxDepth = d3.max(data, function(d) {return +d.depth;});
+		//console.log("minDepth: "+minDepth)	
+		//console.log("maxDepth: "+maxDepth)	
+		
+		// ph
+		var minPH = d3.min(data, function(d) {return +d.ph;});
+		var maxPH = d3.max(data, function(d) {return +d.ph;});
+		console.log("minPH: "+minPH)	
+		console.log("maxPH: "+maxPH)	
+		
+		// Salinity
+		var minPsal = d3.min(data, function(d) {return +d.psal;});
+		var maxPsal = d3.max(data, function(d) {return +d.psal;}); 
+		//console.log("minPsal: "+minPsal)	
+		//console.log("maxPsal: "+maxPsal)
+		
+	
+		resetCharts = function() {	  
+		   dc.filterAll();
+		   dateBarChart.filter([new Date(2014, 0, 1), new Date(2014, 02, 31)])
+		   dc.renderAll();
+		   // y labels need to be reset
+		   customXAxisText(tempBarChart, "Celsius", 305, 155);
+		   customXAxisText(psalBarChart, "ppt", 315, 154);
+		   
+		};
+		
+		// CHARTS ------------------------------------------------------------------------------------
+		// Ocean Row Chart 
+		// *** width of row bars is set in the dc.js file - updateElements() method
+		 var bodyOfWater = xFilter.dimension(function (d) {
+			 var ocean = d.body_of_water;
+			 return ocean;
+         });
+		 
+		 var bodyOfWaterGroup = bodyOfWater.group();			
+			oceanRowChart
+			.width(180).height(300)	
+			.dimension(bodyOfWater)
+			.group(bodyOfWaterGroup)
+			.colors (d3.scale.ordinal ().range (["#87CEEB","#6a51a3", "#2171b5", "#238b45", "#d94801","#87CEEB"]))
+			
+			
+		// Temperature Chart  
+		tempBarChart	
+			.width(350).height(157)			
+			.dimension(tempDim) 
+			.group(tempCount) 		
+			.x(d3.scale.linear().domain([0, 60]))	//minTemp, maxTemp
+			.gap(100)  // not working w/large dataset
+			//.filter([0,30])
+			.xAxis().ticks(8)
+			
+			//reformat y axis numbers
+			tempBarChart.yAxis().tickFormat(d3.format("s"))
+	        
+			// renderlet allows editing several attributes at once
+			tempBarChart.renderlet(function(chart){
+				chart.selectAll('rect.bar').attr('width', 5);
+				chart.selectAll('rect.bar').attr("fill", "#F06017");
+			});
+			
+			
+			
+		// Salinity Chart 
+		
+		psalBarChart	
+			.width(350).height(157)			
+			.dimension(psalDim) 
+			.group(psalGroup) 
+			.x(d3.scale.linear()
+				.domain([minPsal, maxPsal])) 		
+            .centerBar(true)
+			.xAxis().ticks(6)
+		
+	
+		
+			//reformat y axis numbers
+			psalBarChart.yAxis().tickFormat(d3.format("s"))
+				
+			// renderlet allows editing several attributes at once
+			psalBarChart.renderlet(function(chart){
+				chart.selectAll('rect.bar').attr('width', 5);
+				chart.selectAll('rect.bar').attr("fill", "#F06017");
+			});
+			
+		// Date Chart - uses time.scale domain    
+		dateBarChart  		
+			.width(350).height(150)			
+			.dimension(dateDim)
+			.group(dateGroup) 	
+			.x(d3.time.scale().domain([new Date(2014, 0, 1), new Date(2014, 04, 31)])) // Works
+			//.x(d3.time.scale().domain([minDate, maxDate])) // - doesn't show May
+			.renderHorizontalGridLines(true)
+            .centerBar(true)
+			.filter([new Date(2014, 0, 1), new Date(2014, 02, 31)])
+			//reformat y axis numbers
+			dateBarChart.yAxis().tickFormat(d3.format("s"))
+	        
+			
+             
+	
+		dateBarChart.renderlet(function(chart){
+				chart.selectAll('rect.bar').attr('width', 5);
+				chart.selectAll('rect.bar').attr("fill", "green");
+			});
+			
+			
+		// xAxis Date chart formatting	  
+		dateBarChart.xAxis().tickFormat(d3.time.format("%b"));
+		dateBarChart.xAxis().ticks(d3.time.months)
+		//dateBarChart.xAxis().ticks(7); // d3 calculates so doesn't equal 7
+		//dateBarChart.xAxis().tickFormat("");	// removes all ticks
+		
+		// Datatable ------------------------------------        
+		dataTable
+			.dimension(dateDim)
+			.group(function(d) {return d.date.getFullYear();})
+			.columns([
+			    function(d) {return (d.date.getMonth() + 1) + "/" + d.date.getDate() + "/" +  d.date.getFullYear(); },
+				function(d) {return d.temp;},
+				function(d) {return d.psal;},        		
+			]);
+
+		
+		// render all charts
+		dc.renderAll();	
+			
+		
+		// more control over x label text due to css/svg limitations
+		function customXAxisText(chartToUpdate, displayText, xPosition, yPosition, color)
+		{
+			chartToUpdate.svg()
+						.append("text")
+						.attr("class", "x-axis-label")
+						.attr("text-anchor", "middle")
+						.attr("x",xPosition)
+						.attr("y", yPosition)
+						.style("fill", color)
+						.text(displayText)
+										
+		}
+		
+		customXAxisText(tempBarChart, "Celsius", 305, 155, "#06BDE7");
+		customXAxisText(psalBarChart, "ppt", 315, 154, "#06BDE7");
+
+		
+		
+		
+		
+		}); // end load csv
+						
+        </script>
+		
+	</div> <!-- end bg--> 
+</div> <!-- end wrapper-->	
+
+<!-- END JAVASCRIPT-->
+
+<!-- CROSS FILTER PORTAL END -->              
+
+  </body>
+</html>

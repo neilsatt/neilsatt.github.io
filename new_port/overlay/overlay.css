@@ -1,0 +1,56 @@
+.simple_overlay {
+    display:none;  
+    z-index:10000;  
+    background-color:#474747;
+    width:675px;
+    min-height:200px;
+    border:1px solid #666;
+	margin-left:-295px;
+	margin-top:85px;
+ 
+  
+	
+	
+}
+ 
+/* close button positioned on upper right corner */
+.simple_overlay .close {
+    background-image:url(../overlay/close.png);
+    position:absolute;
+    right:-15px;
+    top:-15px;
+    cursor:pointer;
+    height:35px;
+    width:35px;
+}
+
+  .details {
+  position:absolute;
+  top:15px;
+  right:15px;
+  font-size:11px;
+  color:#fff;
+  width:150px;
+  }
+ 
+  .details h3 {
+  color:#aba;
+  font-size:15px;
+  }
+  
+  .details p
+  {
+  font-size: 12px;
+ }
+  
+  #triggers img { 
+    border: 1px solid #CCCCCC;
+    cursor: pointer;
+    margin: 150px 195px;  
+}
+#info-text
+{
+ font-size:12px;
+ margin-left:220px;
+ margin-top:-140px;
+}

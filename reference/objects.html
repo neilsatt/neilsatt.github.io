@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/mainstyles.css">
+	<meta charset="utf-8">
+    <title>JavaScript Reference</title>	
+</head>
+<body>
+
+<ul class='ddMenu'>
+<li><a href='#'>JavaScript Fundamentals</a>
+    <ul>
+	<li><a href='arrays.html'>Arrays and Array Methods</a></li>
+	<li><a href='functions.html'>Functions and Scope</a></li>
+	<li><a href='objects.html'>Objects</a></li>
+	</ul>
+</li>
+<li><a href='#'>Object Oriented JavaScript</a>
+	<ul>
+	<li><a href='constructors.html'>Constructors</a></li>
+	<li><a href='prototypes.html'>Prototypes</a></li>
+    <li><a href='closures.html'>Closures</a></li>
+	</ul>
+</li>
+<!--
+<li><a href='#'>Intermediate and Advanced JS</a>
+    <ul>
+        <li><a href='events.html'>Events</a></li>
+	    <li><a href='timers.html'>Timers</a></li>
+        <li><a href='closures.html'>Closures</a></li>
+        
+	</ul>
+</li>
+-->
+
+
+</ul>
+
+<br />
+<div id="main">
+
+    
+   <h3>Objects</h3>
+   
+     <p class='code'>
+        <b>Creating an Object</b><br />
+        var bankStatement = {}; <br /><br />
+        <b>Creating a custom Object with a property and method</b><br />
+         var bankStatement = {<br />
+                &nbsp;&nbsp;interest: 2.75,<br />
+                &nbsp;&nbsp;myBalance: function (total, interest) {<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return total * interest;<br />
+            &nbsp;&nbsp;&nbsp;}<br />
+        };        
+     </p>
+    
+     <p class='code'>
+        <b>Using dot notation to add a property and method</b><br />
+        bankStatement.holidayBonusRate = 3.5; <br />
+        bankStatement.calculateBonusRate = function (total, holidayBonusRate) {<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return total * holidayBonusRate;<br />
+            &nbsp;&nbsp;&nbsp;}<br />
+         };        
+     </p>
+    
+    <p class='code'>
+        <b>Constructor Functions - with properties, and parameters</b><br />
+        var BankStatement = function(balance, taxRate) { <br />
+                &nbsp;&nbsp;this.balance: 200.00,<br />
+                &nbsp;&nbsp;this.interest: 2.75,<br />
+                &nbsp;&nbsp;this.taxRate = taxRate;<br />        
+         &nbsp;}<br /><br /> 
+        <b>Adding a method to the prototype</b><br />
+        BankStatement.prototype.showTotal = function(balance, total) {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return balance * total;<br />
+        &nbsp;&nbsp;&nbsp;}<br />
+        };
+     </p>
+    
+    <p class='code'>
+        <b>Prototypes</b><br />
+        Prototypes are objects that are cloned to create a new object. This is known as prototypal inheritance.<br /><br /> 
+        You should create methods on the object's prototype if you are going to create multiple instances of an object.<br />
+        This saves memory since each object instance <em>refers</em> to the prototype method, instead of creating a duplicate method of its own.<br /><br /> 
+        <b>Prototype Methods:</b><br />
+        &nbsp;<b>toString </b>- returns a string representation of the object.<br />
+        &nbsp;<b>valueOf </b>- returns a primitive value of the object.<br />
+        &nbsp;<b>hasOwnProperty </b>- returns a Boolean value that indicates whether a property is defined on the object or the object's prototype.<br />
+     </p>
+    
+    <h3>Additional Object methods, operators and terminology</h3>
+     <p class='code'>
+        <b>The create method</b><br />
+         The create method lets you specify which object to use as an object's prototype.<br /><br /> 
+         var originalPrototype = {};<br />  
+         var newPrototype = Object.create(originalPrototype); // inherits from the original prototype<br /><br />  
+        <b>Factory Function</b><br />
+         Functions that create, initialize, and return objects.<br /><br />
+        <b>Inheritance - lets you create a parent object with common methods that you can then extend with more specialized methods.</b><br />
+         To inherit the methods of an object created by a constructor, set the prototype object of the child object to an instance of the parent object.<br /><br />
+         var ContructorOne = {};<br />
+         var ConstructorTwo = {};<br />
+         ConstructorTwo.prototype = new ConstructorOne();<br /><br />
+        <b>Cascading/Chained method</b><br />
+         A method that can be chained with other methods. A method <b>must</b> return the object represented by the <em>this</em> keyword if you want 
+            it to be chained with other methods.<br /><br />
+         <b>Operators:</b><br />
+        &nbsp;<b>in </b >- returns true if an object has the named property.<br />
+        &nbsp;<b>instanceof </b> - returns true if an object is an instance of the specified type. Includes the object typeof the object and an inherited object type.<br />
+        &nbsp;<b>typeof </b> - lets you determine the type of a variable: <br />
+         &nbsp;&nbsp; <b>-</b > number, string, Boolean <br /> 
+         &nbsp;&nbsp; <b>-</b > object (objects and nulls)<br /> 
+         &nbsp;&nbsp; <b>-</b > function (functions and constructors)<br />
+         &nbsp;&nbsp; <b>-</b > and undefined<br />
+        
+     </p>
+    
+
+</div>
+<div id="footer">
+
+</div>
+<script src="js/arrays.js"></script>
+</body>
+</html>

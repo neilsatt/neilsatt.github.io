@@ -1,0 +1,185 @@
+
+body
+{
+ background:#344152;
+ color:white;
+
+}
+
+#mainContent
+{
+  position:absolute;
+  margin: 35px 35px 35px 205px;
+  text-align:center;
+  
+}
+
+.ddMenu {
+	background:#0C090A; 
+	padding:0px; 
+	list-style-type:none; 
+	height:30px;
+	border: solid 1px grey;
+    margin: 0 auto;
+}
+
+.ddMenu li {
+    float:left; 
+	height:30px; 	
+}
+
+.ddMenu li a {
+	padding:9px 55px; 
+	
+	display:block; 
+	color:#fff; 
+	text-decoration:none; 
+	font:12px arial, verdana, sans-serif; 
+	font-weight: bold;
+	
+}
+
+.ddMenu li:hover a {
+	text-decoration:underline;
+}
+
+.ddMenu ul {
+	position:absolute; 
+	left:-9999px; 
+	top:-9999px; 
+	list-style-type:none;
+}
+
+.ddMenu li:hover {
+	position:relative; 
+	background:grey;
+	
+}
+
+.ddMenu li:hover ul {
+	left:0px; 
+	top:30px; 
+	background:lavender; 
+	padding:3px; 
+	border:1px solid grey;
+    z-index: 10;	
+}
+
+.ddMenu li:hover ul li {
+	height:18px; 
+	border:none;
+}
+
+.ddMenu li:hover ul li a {
+	height:18px; 
+	padding:0px; 
+	display:block; 
+	font-size:11px; 
+	width:200px; 
+	line-height:18px; 
+	text-indent:5px; 
+	color:#000; 
+	background-color:lavender; 
+	text-decoration:none; 
+	border:1px solid transparent;
+}
+
+.ddMenu li:hover ul li a:hover {
+	height:18px; 
+	background:silver; 
+	color:#000; 
+	border:solid 1px #444;
+}
+
+h3, h4
+{
+  color:white;
+  font-size:14px; 
+  margin:  0 0 0 10px;
+  padding: 5px;
+  
+}
+
+#canvasContent{
+	margin:  0 0 0 90px;
+
+}
+
+#videoContent {
+  margin:  10px 0 0 170px;
+}
+
+canvas#myCanvas {
+  margin-left: 110px;
+  margin-top:30px;
+  border: solid white 1px;
+}
+
+#stopbutton{
+ margin-left: 110px;
+ margin-top: 30px;
+}
+
+#container {
+  margin: 10px 15px 0 180px;
+
+}
+
+#footer
+{
+  margin-top:50px;
+  font-size:12px;
+  margin-top:410px;
+  text-align:center;
+}
+
+#footer a
+{
+  color:#8B0000;
+}
+
+#btnDiv
+{
+  margin-left: 120px;
+}
+
+#mobileInfo {
+ margin-top:40px;
+}
+
+#highlight {
+ color:orange;
+}
+
+#sortList {
+ margin-left:200px;
+ margin-top: 50px;
+ width:400px;
+}
+
+#sortList table {
+  border: 1px solid #808080;
+}
+
+#sortList table, th, td{
+  background-color: #585858;
+  padding:5px;
+  border-radius:5px;
+}
+
+#sortList table a{
+  color: #FFFFFF;
+}
+
+#info {
+ text-align:center;
+ text-size:10px;
+ margin-top: 25px;
+}
+
+#mapHeader {
+  text-align:left;
+}
+
+
+

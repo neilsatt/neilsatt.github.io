@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="customersApp">
+<head>
+    <title>AngularJS - Order Application</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+    <link href="styles/animations.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    
+    <header>
+        <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav">
+                <li><a href="#/customers">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div ng-view class="slide-animation"></div>
+    
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="scripts/angular-animate.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/customersController.js"></script>
+    <script src="app/controllers/ordersController.js"></script>
+</body>
+</html>
+
+
+

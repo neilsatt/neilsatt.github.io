@@ -1,0 +1,50 @@
+body {
+	background-color: black;
+}
+div#board {
+	position: relative;
+	width: 600px;
+	height: 506px;
+    top: 60px;
+	margin: auto;
+	background: url("board.jpg") no-repeat;
+}
+
+div#messageArea {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	color: rgb(83, 175, 19);
+}
+.hit {
+	background: url("ship.png") no-repeat center center;
+}
+.miss {
+	background: url("miss.png") no-repeat center center;
+}
+#battleshipTable table {
+	border-spacing: 0px; 
+	position: absolute;
+	left: 101px;
+	top: 57px;
+   border: solid 1px orange;
+   }
+#battleshipTable td {
+	width: 46px;
+	height: 47px;
+	background-color: transparent;
+}
+form {
+	position: absolute;
+	width: 120px;
+	bottom: 0px;
+	right: 0px;
+	padding: 15px;
+	background-color: rgb(83, 175, 19);
+}
+form input {
+	background-color: rgb(152, 207, 113);
+	border-color: rgb(83, 175, 19);
+	font-size: 1em;
+	width: 100px
+}

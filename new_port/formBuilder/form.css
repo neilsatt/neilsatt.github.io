@@ -1,0 +1,19 @@
+body {
+    font-family: Helvetica, Ariel, sans-serif;
+}
+
+#formBuilder {
+   max-width: 500px;
+   margin-left: 120px;
+   margin-top:75px;
+   background-color: #585858;
+    border: 1px solid grey;
+	padding-left: 10px;
+}
+
+#description{
+ width: 300px;
+ height: 18px;
+}
+
+  

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Michael Connelly Books</title>
+<link href="styles.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+<!--[if lt IE 9]>
+<script src="html5shiv.js"></script>
+<![endif]-->
+<script src="js/jquery-1.7.2.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#reviewLinks a').click(function() {
+     var url=$(this).attr('href');
+     $('#reviews').load(url + ' #bookReview');
+     return false;
+  }); //end click
+			
+}); // end ready
+</script>
+</head>
+
+<body>
+<div class="outercontent">
+<br/>
+<p class="toptext">Michael Connelly</p>
+<header>
+<nav>
+	<ul >
+			<li><a href="index.html">Home</a></li>
+			<li><a href="video.html">Amazon Prime Series</a></li>			
+			<li><a href="reviews.html">Reviews</a></li>
+			<li><a href="map.html">Locations Map</a></li>
+	</ul>
+</nav>
+</header>
+<br />
+
+<div class="maincontent">
+            <p class="booksheadertext"><em>Click the buttons for book reviews.</em></p>
+			<br/>
+			<ul id="reviewLinks">
+				<li><a href="reviews/echo.html">The Black Echo</a></li>				
+				<li><a href="reviews/city.html">City of Bones</a></li>
+				<li><a href="reviews/narrows.html">The Narrows</a></li>
+				<li><a href="reviews/concrete.html">The Concrete Blonde</a></li>
+			</ul>
+<!--content loaded from jquery/ajax -->
+<div id="reviews">
+<img src="reviews/LA.jpg" alt="Downtown Los Angeles"/>
+</div>
+
+</div>
+<br />
+<footer>
+		<p>This is a fictitious fan site used for portfolio purposes only. Content is &copy;2014 Michael Connelly.</p>
+		<p>For more info about Michael Connelly, please visit his official site: <a href="http://www.michaelconnelly.com/" target="_blank"><em>michaelconnelly.com</em></a></p>
+</footer>
+<br />
+</div>
+</body>
+</html>

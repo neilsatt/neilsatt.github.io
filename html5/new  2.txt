@@ -1,0 +1,67 @@
+$.goMap.createMarker({  
+	   latitude : 34.052182,
+	   longitude :  -118.241069,
+	   
+	   html : {
+	     content : 'Parker Center HQ',
+		 popup : true   
+	   }
+}); // end createMarker
+
+$.goMap.createMarker({  
+	   latitude : 34.077174,
+	   longitude :  -118.473942,
+	   title : 'LAPD Hollywood Station',
+	   html : {
+	     content : 'LAPD Hollywood',
+		 popup : true   
+	   }
+}); // end createMarker
+
+$.goMap.createMarker({  
+	   latitude : 34.120873,
+	   longitude :  -118.341386,
+	   title : "Harry Bosch's Home",
+	   html : {
+	     content : "Harry Bosch's Home",
+		 popup : true   
+	   }
+}); // end createMarker
+
+$('#map').goMap({  
+
+       markers : [
+	   {
+	   latitude : 34.072166,
+	   longitude :  -118.360299,
+	   title : "Du-Par's Restaurant",
+	   html : {
+	     content : "Du-Par's",
+		 popup : true   
+	   }
+	  } 
+	 ],
+}); // end createMarker
+
+
+
+
+
+var markers: [
+		{  
+            latitude: 34.052182, 
+            longitude: -118.241069, 
+            html: { 
+                content: 'Hello InfoWindow #1!', 
+                popup: true 
+            } 
+        },
+		{  
+            latitude: 34.077174, 
+            longitude: -118.473942, 
+            html: { 
+                content: 'Hello InfoWindow #2!', 
+                popup: true 
+            } 
+        }
+	] 
