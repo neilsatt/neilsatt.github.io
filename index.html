@@ -10,6 +10,12 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         <link rel="stylesheet" href="custom.css">
         <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+       	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+       <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
 
   </head>
   <body>
@@ -195,34 +201,60 @@
 			</div><!-- /Second Row -->
       </div>
 
-		
-       <!-- info --> 
-        <footer class="footer">
-          <div class="container text-center">
-              <span><img class="mb-3 img-fluid rounded " src="img/info.png"   width="50" alt="info" ></span>
-            </div>
-         <hr>   
-        </footer>
+		<hr>
+      
+      
+        <div id="dialog" title="About">
+            <p>
+               I have experience with languages and tools including HTML5, JavaScript, CSS3, Sass, jQuery, Responsive Design, Bootstrap, Gulp, Site Optimization, and Git.
+
+            </p>
+       </div>
+ 
+
+   
+    
 		
         <footer class="footer">
           <div class="container text-center">
               <a href="https://www.linkedin.com/in/neilsatterfield/" target="_blank"><span><img class="mb-3 img-fluid rounded " src="img/linkedin.svg"   width="45" alt="linkedin" ></span></a>
              <a href="https://github.com/neilsatt" target="_blank"><span><img class="mb-3 img-fluid rounded " src="img/github.svg"   width="45" alt="github" ></span></a>
               <a href="mailto:neilsatt@gmail.com?subject=Mail%20from%20Portfolio"><span><img class="mb-3 img-fluid rounded " src="img/email.svg"   width="50" alt="email" ></span></a>
-              <div id='time'></div>
-            </div>
-            
+              <a href="#" id="opener"><span><img class="mb-3 img-fluid rounded " src="img/info.png"  width="45" alt="info" ></span></a>
+              <div id='time'></div>   
+            </div>    
         </footer>
+      
+ 
    
 		
-    <!-- jQuery first, then bootstrap js -->
-		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <!-- js files -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-        
-         <script src="js/site.js"></script>
-       
+        <script src="js/site.js"></script>
+      
+         <script>
+          $( function() {
+            $( "#dialog" ).dialog({
+              autoOpen: false,
+              show: {
+                effect: "fade",
+                duration: 1000
+              },
+              hide: {
+                effect: "fade",
+                duration: 1000
+              }
+            });
 
+            $( "#opener" ).on( "click", function() {
+              $( "#dialog" ).dialog( "open" );
+            });
+              
 
+          } );
+    
+  </script>
+         
   </body>
 </html>

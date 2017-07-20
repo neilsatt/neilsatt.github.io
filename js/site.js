@@ -5,3 +5,7 @@ function showDate() {
 }
 
 showDate();
+
+$( ".selector" ).dialog({
+  maxHeight: 600
+});
