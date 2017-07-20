@@ -11,3 +11,24 @@ body {
 .navbar {
     background-color: black;
 }
+
+
+h1,
+h5,
+h6, 
+div {
+    font-family: 'ABeeZee';
+}
+
+/* faq */
+#main h2 {
+	background: url(img/open.png) no-repeat 0% 10%;
+	padding-left: 40px;
+	cursor: pointer;
+}
+#main h2.close {
+	background-image: url(img/close.png);
+}
+#main .answer {
+  background-color: white;
+}
