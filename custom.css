@@ -12,6 +12,11 @@ body {
     background-color: black;
 }
 
+.navbar-text {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 
 h1,
 h5,
@@ -23,7 +28,7 @@ div {
 
 
 /* The Modal */
-.modal {
+.infoModal {
     display: none; 
     position: fixed; 
     z-index: 1;
@@ -37,7 +42,7 @@ div {
 }
 
 /* Modal Content/Box */
-.modal-content {
+.infoModal-content {
     background-color: #ECF0F4;
     margin: 15% auto; 
     padding: 20px;
@@ -46,7 +51,7 @@ div {
 }
 
 /* The Close Button */
-.modal-content .close {
+.infoModal-content .close {
     color: #000;
     float: right;
     font-size: 28px;
