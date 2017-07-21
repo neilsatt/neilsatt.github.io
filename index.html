@@ -11,10 +11,8 @@
         <link rel="stylesheet" href="custom.css">
         <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
        	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-       <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  
   
 
   </head>
@@ -203,14 +201,13 @@
 
 		<hr>
       
-      
-        <div id="dialog" title="About">
-            <p>
-               I have experience with languages and tools including HTML5, JavaScript, CSS3, Sass, jQuery, Responsive Design, Bootstrap, Gulp, Site Optimization, and Git.
-
-            </p>
-       </div>
- 
+      <div id="myModal" class="modal">
+         <div class="modal-content">
+            <span class="close">&times;</span>
+               <p><b>Welcome to my Portfolio!</b></p>
+             <p>I first started working on websites using HTML, CSS, and Adobe Flash a few years ago. I'm currently finishing up an online bootcamp where I'm updating my skills with modern Front-end Development languages and tools including HTML5, JavaScript, CSS3, Sass, jQuery, Responsive Design, Bootstrap, Gulp, Site Optimization, and Git.</p>
+         </div>
+      </div>
 
    
     
@@ -220,7 +217,7 @@
               <a href="https://www.linkedin.com/in/neilsatterfield/" target="_blank"><span><img class="mb-3 img-fluid rounded " src="img/linkedin.svg"   width="45" alt="linkedin" ></span></a>
              <a href="https://github.com/neilsatt" target="_blank"><span><img class="mb-3 img-fluid rounded " src="img/github.svg"   width="45" alt="github" ></span></a>
               <a href="mailto:neilsatt@gmail.com?subject=Mail%20from%20Portfolio"><span><img class="mb-3 img-fluid rounded " src="img/email.svg"   width="50" alt="email" ></span></a>
-              <a href="#" id="opener"><span><img class="mb-3 img-fluid rounded " src="img/info.png"  width="45" alt="info" ></span></a>
+              <a href="#" id="myBtn"><span><img class="mb-3 img-fluid rounded " src="img/info.png"  width="45" alt="info" ></span></a>
               <div id='time'></div>   
             </div>    
         </footer>
@@ -234,26 +231,7 @@
         <script src="js/site.js"></script>
       
          <script>
-          $( function() {
-            $( "#dialog" ).dialog({
-              autoOpen: false,
-              show: {
-                effect: "fade",
-                duration: 1000
-              },
-              hide: {
-                effect: "fade",
-                duration: 1000
-              }
-            });
 
-            $( "#opener" ).on( "click", function() {
-              $( "#dialog" ).dialog( "open" );
-            });
-              
-
-          } );
-    
   </script>
          
   </body>
