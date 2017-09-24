@@ -1,11 +1,3 @@
-function showDate() {
-  var date = new Date();
-  var currentDate = date.toDateString();
-  document.getElementById('time').innerHTML = currentDate;
-}
-
-showDate();
-
 var modal = document.getElementById('myModal');          
 var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
