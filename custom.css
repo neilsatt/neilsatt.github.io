@@ -9,8 +9,8 @@ body {
 }
 
 .navbar {
-    background-color: black;
-    height: 25px;
+    background-color: #404040;
+    height: 16px;
 }
 
 .navbar-text {
@@ -26,6 +26,10 @@ div {
     font-family: 'ABeeZee';
 }
 
+h6{
+    text-align: center;
+    font-weight: bold;
+}
 
 
 /* The Modal */
